@@ -1,0 +1,138 @@
+.container{
+    max-width: 1100px;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img,svg{
+    width: 100%;
+}
+
+
+/* Navbar Section */
+.navbar{
+    height: 10vh;
+    position: fixed;
+    width: 100%;
+    z-index: 30;
+}
+
+.navbar.sticky{
+    background-color: #39374E;
+}
+
+.navbar .container{
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    height: 100%;
+    align-items: center;
+}
+
+.navbar .logo{
+    /* color: #111;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    letter-spacing: 2px; */
+    z-index: 10;
+    height: 60px;
+    width: 150px;
+}
+
+.navbar .nav-links{
+    display: flex;
+    justify-self: flex-end;
+}
+
+
+
+.navbar .nav-links li a{
+    margin: 0 1rem;
+    color: #39374E;
+    position: relative;
+    top: 0.6rem;
+}
+
+.navbar .nav-links li a::after{
+    position: absolute;
+    content: "";
+    background: orange;
+    width: 0%;
+    height: 3px;
+    border-radius: 10px;
+    margin: 0.1rem 1rem;
+    display: block;
+}
+
+.navbar .nav-links li a:hover::after{
+    width: 100%;
+    transition: 0.4s ease;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: #111;
+    margin: 5px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.navbar.sticky .nav-links li a{
+    color: #fff;
+}
+
+.navbar.sticky .burger div{
+    background-color: #fff;
+}
+
+.burger{
+    cursor: pointer;
+    display: none;
+}
+
+.login{
+    background: none;
+    border: 0;
+    font-size: 16px;
+    margin-left: 8rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    outline: 0;
+    color: #39374E;
+}
+
+.login a{
+    color: #39374E;
+}
+
+.navbar.sticky .login a{
+    color: #fff;
+}
+
+.signup{
+    background: none;
+    border: 0;
+    padding: 0.6rem 1.1rem;
+    background: #7474BF; 
+    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  
+    background: linear-gradient(to right, #348AC7, #7474BF); 
+    border-radius: 30px;
+    cursor: pointer;
+    outline: 0;
+}
+
+.signup a{
+    color: #fff;
+}
+
+.signup:hover{
+    opacity: 0.9;
+}
