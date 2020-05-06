@@ -5,6 +5,23 @@ const moment = require('moment');
 const {errorHandler} = require("../helpers/dbErrorHandler");
 const Transaction = require('../models/Transaction');
 
+exports.listThirty = (req, res) => {
+    const userId = req.profile._id;
+    const start = moment().subtract(30, "days");
+    Transaction.find({whichUser: userId, createdAt : {$gte : start}})
+    .select('-photo')
+    .sort([['createdAt', 'desc']])
+    .populate("category")
+    .exec((err, transactions_data) => {
+        if(err){
+            return res.status(400).json({
+                error : errorHandler(err)
+            });
+        }
+        return res.json(transactions_data);
+    });
+};
+
 
 exports.listTen = (req, res) => {
     const userId = req.profile._id;

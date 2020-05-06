@@ -89,7 +89,24 @@ const TrackerBody = () => {
                               negative_s += one_t.price;
                             }
                           });
+                          console.log(data);
+                          console.log(dataa);
+                          if(data.length === 0 || dataa.length === 0){
+                              setValues({ ...values, 
+                                error : "You did not initialize your data, add account and categories", 
+                                net_balance: dataupb.user.netBalance, 
+                                positive_trns: positive_s, 
+                                negative_trns: negative_s, 
+                                transactions_data : datat, 
+                                categories: data, 
+                                accounts: dataa, 
+                                formData: new FormData()});
+
+                          }
+                          else {
                   setValues({ ...values, net_balance: dataupb.user.netBalance, positive_trns: positive_s, negative_trns: negative_s, transactions_data : datat, categories: data, accounts: dataa, formData: new FormData()});
+
+                          }
     
                         }
                       });

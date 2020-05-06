@@ -1,6 +1,56 @@
 import {API} from '../config';
 
 
+export const createAccount = (userId, token, accountName, initialAmount, account_type) => {
+    let coefficient = 1;
+    if(account_type === "USD"){
+        coefficient = 6.73;
+    }
+    else if(account_type === "EURO"){
+        coefficient = 7.28;
+    }
+
+    else if(account_type === "GBP"){
+        coefficient = 8.26;
+    }
+
+    else if(account_type === "AUG"){
+        coefficient = 350;
+    }
+
+    else if(account_type === "BTC"){
+        coefficient = 45729;
+    }
+    return fetch(`${API}/account/create/${userId}`, {
+        method: "POST",
+        headers: {
+            Accept : "application/json",
+            "Content-type" : "application/json",
+            Authorization : `Bearer ${token}`
+        },
+        body: JSON.stringify({"account_title" : accountName, "account_amount": initialAmount, "account_type" : account_type, "whichUser": userId, "coefficient" : coefficient})
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
+export const listThirty = (userId, token) => {
+    return fetch(`${API}/transaction/listThirty/${userId}`, {
+        method: "GET",
+        headers: {
+            Authorization : `Bearer ${token}`
+        }
+    }).then(response => {
+        return response.json();
+    }).catch(err => {
+        console.log(err);
+    });
+};
+
 export const listTen = (userId, token) => {
     return fetch(`${API}/transaction/listTen/${userId}`, {
         method: "GET",

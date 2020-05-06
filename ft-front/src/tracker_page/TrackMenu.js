@@ -14,7 +14,7 @@ const TrackMenu = (isSticky) => {
             </Scrollchor>
             <ul className={`nav-links ${burgerClick ? 'active' : ''}`} >
             <li>
-                    <Link to="/category">Category</Link>
+                    <Link to="/category">Initialize</Link>
                 </li>
                 <li>
                     <Link to="/transactions">Transactions</Link>

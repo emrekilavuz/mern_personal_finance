@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const SVGPart = () => {
     return (
@@ -12,7 +13,7 @@ const SVGPart = () => {
                         tenetur!
                         Optio suscipit quia laboriosam unde numquam quasi totam fuga perferendis repellat!
                     </p>
-                    <button type="button">Get Started</button>
+                    <button type="button"><Link to="/tracker">Get Started</Link></button>
                 </div>
                 <div className="intro-img">
                     <svg width="497" height="421" viewBox="0 0 497 421" fill="none" xmlns="http://www.w3.org/2000/svg">
